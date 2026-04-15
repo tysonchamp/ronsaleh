@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 Week Breath Workshop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFFFFF;
+            --section: #FFFFFF;
+            --text: #1A1A1A;
+            --muted: #4B5563;
+            --accent: #3D5524;
+            --accent-dark: #2D3F1B;
+            --border: #E5E7EB;
+            --soft: #F3F6F1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: 100%;
+        }
+
+        .hero {
+            padding: 90px 24px 80px;
+            background: linear-gradient(rgba(26, 36, 15, 0.5), rgba(26, 36, 15, 0.5)), url('img/background.png') center center/cover no-repeat;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 13px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 0;
+            line-height: 1.15;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 74px);
+            max-width: 760px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            font-size: 19px;
+            margin: 0 0 32px;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin: 36px 0 34px;
+            max-width: 980px;
+        }
+
+        .hero-meta div {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 18px 16px;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-meta span {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-meta strong {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-light {
+            background: var(--section);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 46px;
+            align-items: start;
+        }
+
+        .kicker {
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4.8vw, 52px);
+            margin-bottom: 22px;
+        }
+
+        .lead {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .details-card {
+            background: var(--soft);
+            padding: 34px 30px;
+            border: 1px solid var(--border);
+        }
+
+        .details-card h3 {
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        .detail-row {
+            padding: 14px 0;
+            border-bottom: 1px solid #dccfc2;
+        }
+
+        .detail-row:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-row span {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        .detail-row strong {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .weeks {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px;
+            margin-top: 38px;
+        }
+
+        .week-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 34px 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .week-number {
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .week-card h3 {
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .week-card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .week-card li {
+            margin-bottom: 12px;
+        }
+
+        .cta {
+            background: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 82px 24px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 28px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 18px;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 960px) {
+
+            .hero-meta,
+            .weeks,
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 70px;
+                padding-bottom: 64px;
+            }
+
+            .section,
+            .cta {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <section class="hero">
+            <div class="container">
+                <div class="eyebrow">Workshops & Events</div>
+                <h1>3 Week Breath Workshop</h1>
+                <p>
+                    A practical three week workshop to help you reconnect with your breath, regulate your nervous
+                    system, and use breathing as a tool for performance, recovery, and everyday wellbeing.
+                </p>
+
+                <div class="hero-meta">
+                    <div>
+                        <span>Dates</span>
+                        <strong>Wednesday 29 April, 6 May & 13 May</strong>
+                    </div>
+                    <div>
+                        <span>Time</span>
+                        <strong>7:00pm – 8:00pm</strong>
+                    </div>
+                    <div>
+                        <span>Arrival</span>
+                        <strong>Please arrive 15 min early</strong>
+                    </div>
+                    <div>
+                        <span>Total Cost</span>
+                        <strong>$180</strong>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a class="btn btn-primary" href="https://ron-saleh.au5.cliniko.com" target="_blank"
+                        rel="noopener noreferrer">Book Your Spot</a>
+                    <a class="btn btn-secondary" href="#overview">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="section section-light">
+            <div class="container intro-grid">
+                <div>
+                    <div class="kicker">Breathwork & Regulation</div>
+                    <h2>Learn to work with your breath in a grounded, practical way.</h2>
+                    <p class="lead">
+                        This workshop is designed for people who want to better understand how they breathe, how breath
+                        affects their internal state, and how to use it with more clarity and intention.
+                    </p>
+                    <p class="lead">
+                        Across three weeks, you will build awareness, learn simple techniques, and develop tools you can
+                        apply in daily life for stress regulation, focus, performance, and recovery.
+                    </p>
+                    <p class="lead">
+                        Whether you are new to breathwork or looking for a more structured approach, this series offers
+                        a clear entry point that is practical, accessible, and immediately useful.
+                    </p>
+                </div>
+
+                <div class="details-card">
+                    <h3>Workshop Details</h3>
+                    <div class="detail-row">
+                        <span>Workshop</span>
+                        <strong>3 Week Breath Workshop</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Session Length</span>
+                        <strong>60 minutes each week</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Dates</span>
+                        <strong>29 April, 6 May and 13 May</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Time</span>
+                        <strong>7pm to 8pm</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Arrival</span>
+                        <strong>Please arrive 15 minutes beforehand</strong>
+                    </div>
+                    <div class="detail-row">
+                        <span>Investment</span>
+                        <strong>$180 total</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="kicker">What You’ll Learn</div>
+                <h2>A clear progression over three weeks.</h2>
+
+                <div class="weeks">
+                    <article class="week-card">
+                        <div class="week-number">Week 1</div>
+                        <h3>Connect to Your Breath</h3>
+                        <ul>
+                            <li>Learn how you currently breathe, where the breath moves in your body, and what your
+                                natural rhythm looks like.</li>
+                            <li>Build awareness of physical sensations, tension, and how present or disconnected you
+                                feel in your body.</li>
+                            <li>Take home a simple daily practice using gentle nasal breathing to reconnect and observe
+                                without force.</li>
+                        </ul>
+                    </article>
+
+                    <article class="week-card">
+                        <div class="week-number">Week 2</div>
+                        <h3>Regulate Your State</h3>
+                        <ul>
+                            <li>Learn practical breathing techniques to support your nervous system and help reduce
+                                stress and anxiety.</li>
+                            <li>Understand how different breathing patterns influence your internal state and emotional
+                                regulation.</li>
+                            <li>Apply structured exercises you can use in real life to shift how you feel quickly and
+                                effectively.</li>
+                        </ul>
+                    </article>
+
+                    <article class="week-card">
+                        <div class="week-number">Week 3</div>
+                        <h3>Breath for Performance & Recovery</h3>
+                        <ul>
+                            <li>Explore how breath can enhance physical performance, focus, and recovery.</li>
+                            <li>Learn techniques to improve endurance, manage fatigue, and optimise output.</li>
+                            <li>Practice targeted exercises to use breath as a tool for training, recovery, and daily
+                                performance.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="eyebrow">Reserve Your Place</div>
+                <h2>Join the 3 Week Breath Workshop</h2>
+                <p>
+                    If you are ready to build a better relationship with your breath and learn practical tools you can
+                    carry into daily life, this workshop offers a clear and supportive place to begin.
+                </p>
+                <div class="buttons" style="justify-content:center;">
+                    <a class="btn btn-primary" href="https://ron-saleh.au5.cliniko.com" target="_blank"
+                        rel="noopener noreferrer">Book Now</a>
+                </div>
+                <div class="note">Limited places available.</div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
